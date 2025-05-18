@@ -1,0 +1,39 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Export Data";
+}
+
+<h2>Export Data</h2>
+<a href="/Export/DownloadPDF" class="btn btn-danger">Download PDF</a>
+<a href="/Export/DownloadExcel" class="btn btn-success">Download Excel</a>
+
+@model List<LaporanModel>
+
+<h2>Data Laporan</h2>
+
+<table border="1" cellpadding="5">
+    <thead>
+        <tr>
+            <th>Nama</th>
+            <th>Tanggal</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Nama</td>
+                <td>@item.Tanggal.ToString("dd/MM/yyyy")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@* @if (ViewBag.KoneksiStatus != null)
+{
+    <div style="margin-bottom:20px;color:green;font-weight:bold;">
+        @ViewBag.KoneksiStatus
+    </div>
+} *@
